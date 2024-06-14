@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web final</title>
+	<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+	<div class="navbar">
+        <a href="/anasayfa" class="<%= page === 'anasayfa' ? 'active' : '' %>">Anasayfa</a>
+        <a href="/iletisim" class="<%= page === 'iletisim' ? 'active' : '' %>">İletişim</a>
+        <a href="https://izu.edu.tr/">İZU Web Sayfası</a>
+    </div>
+	<br>
+	<% if( page === 'anasayfa'){ %>
+
+	<form action="/anasayfa" method="get" >
+		<label>Aradığınız ilçe adı: </label>
+		<input type="text" name="kosul" value="<%= kosul %>">
+		<input type="submit" value="Filtrele">
+    </form>
+	<br>
+
+	<div class = "data-table">
+		<table border="%50">
+			<tr>
+				<th>sırası</th>
+				<th>Şehir ID</th>
+				<th>İlce Adı</th>
+			</tr>
+			<% if (bilgiler.length !== 0){ %>
+				<% bilgiler.forEach(function(data, index){ %>
+					<tr>
+						<td><%= data.id %></td>
+						<td><%= data.sehir_id %></td>
+						<td><%= data.ilce_adi %></td>
+					</tr>
+				<% }); %>
+			<% }else { %>
+				<tr>
+					<td colspan="3">No data found</td>
+				</tr>
+			<% } %>
+		</table>
+	</div>
+	<% } else if (page === 'iletisim'){ %>
+		<div class = "contactForm">
+			<form action="/iletisim" method="get" >
+				<label for="ad">Ad</label>
+				<input type="text" id="ad" name="ad" placeholder="Adınız">
+
+				<label for="soyad">Soyad</label>
+				<input type="text" id="soyad" name="soyad" placeholder="Soyadınız">
+
+				<label for="sehir">Yaşadığınız Şehir</label>
+				<br>
+				<select id="sehir" name="sehir">
+					<option value="İstanbul">İstanbul</option>
+					<option value="Ankara">Ankara</option>
+					<option value="İzmir">İzmir</option>
+				</select>
+				<br>
+				<label for="konu">Konu</label>
+				<br>
+				<textarea id="konu" name="konu" placeholder="Mesajınız" class="resizeable-textarea"></textarea>
+
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	<% } %>
+
+</body>
+</html>
