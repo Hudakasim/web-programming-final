@@ -43,10 +43,11 @@ app.get('/iletisim', (req, res) => {
 	let nesne = {
 		name: req.query.ad || '',
 		surname: req.query.soyad || '',
-		city: req.query.sehir || '',
-		subject: req.query.konu || ''
+		email: req.query.email || '',
+		tel: req.query.telefon || '',
+		subject: req.query.mesaj || ''
 	};
-	console.log(`Ad: ${nesne.name}, Soyad: ${nesne.surname}, Şehir: ${nesne.city}, Konu: ${nesne.subject}`);
+	console.log(`Ad: ${nesne.name}, Soyad: ${nesne.surname}, Email: ${nesne.email}, Telefon: ${nesne.tel}, Mesaj: ${nesne.subject}`);
 	res.render("main", {page: 'iletisim'});
 });
 

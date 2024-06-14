@@ -64,16 +64,6 @@ body {
 .contactForm input[type=submit]:hover {
 	background-color: #45a049;
 }
-.contactForm select {
-	width: 100%;
-	padding: 12px;
-	margin: 8px 0;
-	display: inline-block;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	box-sizing: border-box;
-	font-size: 16px;
-}
 .resizeable-textarea {
 width: calc(100% - 20px); /* Adjust the width as needed, subtracting padding and margins */
 max-width: 100%; /* Ensures it doesn't exceed the width of its container */
